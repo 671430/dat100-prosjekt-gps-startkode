@@ -46,12 +46,26 @@ public class ShowSpeed extends EasyGraphics {
 		// get segments speeds from the GPS computer object		
 		double[] speeds = gpscomputer.speeds();
 
-		int x = MARGIN,y;
+		int x = MARGIN,y,gj=0;
+		for(int i=0; i<speeds.length;i++) {
+			gj += (int)speeds[i];
+		}
+		gj = gj/speeds.length;
 
-		// TODO - START
+		setColor(0,0,255);
 		
-		throw new UnsupportedOperationException(TODO.method());
-	
-		// TODO - SLUTT
+		for(int i=0; i<gpspoints.length; i++) {
+			y = (int)gpspoints[i].getElevation();
+			System.out.println(y);
+			if(y < 0) {
+				y = 0;
+			}
+			drawLine(x,ybase,x,ybase-y);
+			x += 2;
+			
+
+		}
+		setColor(0,255,0);
+		drawLine(MARGIN,ybase-gj,x,ybase-gj);
 	}
 }
