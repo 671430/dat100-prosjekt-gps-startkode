@@ -22,6 +22,7 @@ public class ShowProfile extends EasyGraphics {
 
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
 		GPSComputer gpscomputer =  new GPSComputer(filename);
+		
 
 		gpspoints = gpscomputer.getGPSPoints();
 		
@@ -46,12 +47,18 @@ public class ShowProfile extends EasyGraphics {
 		// ybase indicates the position on the y-axis where the columns should start
 	
 		int x = MARGIN,y;
-
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-	
-		// TODO - SLUTT
+				
+		setColor(0,0,255);
+		
+		for(int i = 0; i<gpspoints.length; i++) {
+			y = (int)gpspoints[i].getElevation();
+			System.out.println(y);
+			if(y < 0) {
+				y = 0;
+			}
+			drawLine(x,ybase,x,ybase-y);
+			x++;
+		}
 	}
 
 }
