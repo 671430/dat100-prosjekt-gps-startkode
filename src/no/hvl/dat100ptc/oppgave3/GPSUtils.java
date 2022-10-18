@@ -125,14 +125,15 @@ public class GPSUtils {
 		String str;
 		System.out.println(d);
 		
-		str = String.format("%.2f",d);
+		String sta = String.format("%.2f",d);
+		String stb = "";
+		System.out.println(sta);
 		
-		System.out.println(str);
+		for (int i = sta.length()-1; i<TEXTWIDTH-1; i++ ) {
+			stb += " ";
+			}
 		
-		for (int i = 1; str.length()<TEXTWIDTH; i++ ) {
-			str += " " + str;
-			
-		}
+		str = stb+sta;
 		System.out.println(str);
 		return str;
 	
